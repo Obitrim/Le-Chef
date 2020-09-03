@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Le chef</title>
+
+	<link rel="stylesheet" href="./index.css" />
+	<meta name="theme-color" content="var(--bg-color)" />
+	<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Roboto:wght@300;700&display=swap" rel="stylesheet" defer>
+</head>
+<body>
+	<header class="Header">
+		<div class="Container Container--Flex Container--VAlign Container--SpaceBetween Container--FullHeight">
+			<a href="#" class="Header__Logo"><em>Le Chef</em></a>
+			<nav class="Navbar">
+				<button type="button" class="Navbar__ContactUsBtn">Contact us</button>
+			</nav>
+		</div>
+	</header>
+	<main class="Main">
+		<div class="Container Container--FullHeight Container--Flex Container--SpaceBetween">
+			<article class="Introduction">
+				<h2 class="Introduction__Subheading">Le Chef's Noodles</h2>
+				<h1 class="Introduction__Heading">The best noodles with choice toppings</h1>
+				<p class="Introduction__Description">
+					Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Repellat explicabo culpa numquam repellendus sit nulla
+				</p>
+				<button type="button" class="Introduction__BrowseDishesBtn">Browse Dishes</button>
+				<div class="Comments">
+					<div class="Comments__Controls">
+						<button type="button" class="Comments__Controls__Control Comments__Controls__Control--Prev" disabled>&larr;</button>
+						<button type="button" class="Comments__Controls__Control Comments__Controls__Control--Next">&rarr;</button>
+					</div>
+					<div class="Comments__Wrapper" data-comments-count="5">
+						<div class="Comment">
+							<img class="Comment__UserProfileImg" src="./images/p1.jpg" alt="profile-img"/>
+							<article class="Comment__UserProfileInfo">
+								<h3 class="Comment__UserProfileInfo__Heading">Lorem ipsum dolor sit amet.</h3>
+								<p class="Comment__UserProfileInfo__Description">Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Dolorum dolor, earum. Sapiente, iure aspernatur laborum.</p>
+							</article>
+						</div>
+						<div class="Comment">
+							<img class="Comment__UserProfileImg" src="./images/p2.jpg" alt="profile-img"/>
+							<article class="Comment__UserProfileInfo">
+								<h3 class="Comment__UserProfileInfo__Heading">Lorem ipsum dolor sit amet.</h3>
+								<p class="Comment__UserProfileInfo__Description">Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Dolorum dolor, earum. Sapiente, iure aspernatur laborum.</p>
+							</article>
+						</div>
+						<div class="Comment">
+							<img class="Comment__UserProfileImg" src="./images/p3.jpg" alt="profile-img"/>
+							<article class="Comment__UserProfileInfo">
+								<h3 class="Comment__UserProfileInfo__Heading">Lorem ipsum dolor sit amet.</h3>
+								<p class="Comment__UserProfileInfo__Description">Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Dolorum dolor, earum. Sapiente, iure aspernatur laborum.</p>
+							</article>
+						</div>
+						<div class="Comment">
+							<img class="Comment__UserProfileImg" src="./images/p4.jpg" alt="profile-img"/>
+							<article class="Comment__UserProfileInfo">
+								<h3 class="Comment__UserProfileInfo__Heading">Lorem ipsum dolor sit amet.</h3>
+								<p class="Comment__UserProfileInfo__Description">Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Dolorum dolor, earum. Sapiente, iure aspernatur laborum.</p>
+							</article>
+						</div>
+						<div class="Comment">
+							<img class="Comment__UserProfileImg" src="./images/p5.jpg" alt="profile-img"/>
+							<article class="Comment__UserProfileInfo">
+								<h3 class="Comment__UserProfileInfo__Heading">Lorem ipsum dolor sit amet.</h3>
+								<p class="Comment__UserProfileInfo__Description">Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Dolorum dolor, earum. Sapiente, iure aspernatur laborum.</p>
+							</article>
+						</div>
+					</div>
+				</div>
+			</article>
+			<div class="Dish">
+				<img class="Dish__Img" src="./images/banner-dish.png"></img>
+			</div>
+		</div>
+	</main>
+
+	<script>
+		let commentsPrevBtn = document.querySelector(".Comments__Controls__Control--Prev");
+		let commentsNextBtn = document.querySelector(".Comments__Controls__Control--Next");
+		let commentsWrapper = document.querySelector(".Comments__Wrapper");
+
+		let commentIndex = 0;
+		
+		commentsPrevBtn.addEventListener("click", (evt) => {
+			commentIndex--;
+			commentsWrapper.style.marginLeft = commentIndex * -100 + "%";
+			evt.target.disabled = commentIndex === 0;
+			commentsNextBtn.disabled = commentIndex === 4;
+		});
+
+		commentsNextBtn.addEventListener("click", (evt) => {
+			commentIndex++;
+			commentsWrapper.style.marginLeft = commentIndex * -100 + "%";
+			evt.target.disabled = commentIndex === 4;
+			commentsPrevBtn.disabled = commentIndex === 0;
+		});
+	</script>
+</body>
+</html>
