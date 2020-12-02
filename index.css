@@ -17,7 +17,7 @@
 }
 
 *, ::before, ::after {
-	box-sizing: border-box;
+	box-sizing: border-box !important;
 }
 
 body {
@@ -223,10 +223,10 @@ body {
 }
 
 .Dish__Img {
-	width: auto;
+	width: 100%;
 	max-width: 400px;
 	height: 350px;
-	object-fit: cover;
+	object-fit: contain;
 	animation: dish-wave calc(var(--transition-speed) * 5) ease-in-out infinite;
 }
 
